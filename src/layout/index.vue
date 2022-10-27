@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <nav-menu></nav-menu>
-    <div class="main-container">
+    <div class="main-container" :class="isCollapse ? 'main-container-close' : ''">
       <nav-header></nav-header>
       <app-main />
     </div>
@@ -22,7 +22,7 @@ export default {
   },
   mixins: [ResizeMixin],
   computed: {
-    ...mapState({}),
+    ...mapState("setting", ["isCollapse"]),
   },
   methods: {},
 };
@@ -60,5 +60,8 @@ export default {
 
 .mobile .fixed-header {
   width: 100%;
+}
+.main-container-close {
+  margin-left: 90px !important;
 }
 </style>

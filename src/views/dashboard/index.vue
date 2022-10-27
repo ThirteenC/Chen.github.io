@@ -17,3 +17,7 @@ export default {
   created() {},
 };
 </script>
+<style lang="scss" scoped>
+.dashboard-container {
+}
+</style>

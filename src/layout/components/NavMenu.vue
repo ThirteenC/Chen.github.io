@@ -3,10 +3,6 @@
     class="sidebar-container"
     :class="isCollapse ? 'sidebar-container-close' : ''"
   >
-    <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group> -->
     <div class="logo-content">
       <i class="el-icon-s-promotion"></i>
     </div>
@@ -41,26 +37,11 @@
     </el-menu>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.logo-content {
-  height: 50px;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-.sidebar-container-close {
-  width: 75px !important;
-}
-</style>
-
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
-      isCollapse: false,
       routes: [
         { title: "首页", path: "/" },
         {
@@ -69,6 +50,9 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    ...mapState("setting", ["isCollapse"]),
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -83,3 +67,18 @@ export default {
   },
 };
 </script>
+
+
+<style lang="scss" scoped>
+.logo-content {
+  height: 50px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.sidebar-container-close {
+  width: 80px !important;
+}
+</style>
